@@ -31,3 +31,15 @@
     border-radius:3px;
     font-size: 18px;
 }
+.placeholder1{
+    margin: 5px;
+    padding: 15px 35px;
+    text-align: center;
+    background-color:#9ed99d;
+    height: 2.3em;
+    line-height: 2.3em;
+    font-weight: bold;
+    color: #fff;
+    border-radius:3px;
+    font-size: 18px;
+}

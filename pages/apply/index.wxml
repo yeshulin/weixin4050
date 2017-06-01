@@ -4,12 +4,22 @@
     <form bindsubmit="formSubmit" bindreset="formReset">
         <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示:{{errMessage}}</view>
         <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">年度</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <input class="weui-input"  name="years" value="{{years}}" style="display:none"/>{{years}}
+                    <input class="weui-input" name="id" value="{{userid}}" style="display:none"/>
+                    <input class="weui-input" name="avatarurl" value="{{userInfo.avatarUrl}}" style="display:none"/>
+                </view>
+            </view>
             <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
                     <view class="weui-label">身份证号</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入身份证号" name="username"/>
+                    <input class="weui-input" type="idcard" placeholder="请输入身份证号" name="username"/>
                 </view>
             </view>
             <view class="weui-cell weui-cell_input">
@@ -24,7 +34,7 @@
                 <view class="weui-cell__hd">
                     <view class="weui-label">性别</view>
                 </view>
-               <radio-group bindchange="radioChange">
+               <radio-group bindchange="radioChange"  name="sex">
                 <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="value">
                     <radio class="weui-check" name="sex" value="{{item.value}}" checked="{{item.checked}}"/>
                     <view class="weui-cell__bd">{{item.name}}</view>
@@ -49,7 +59,7 @@
                     <view class="weui-label">所属区域</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <picker bindchange="bindCountryChange" value="{{'Zonename'}}" range="{{countries}}" range-key="{{'Zonename'}}" name="zone">
+                    <picker bindchange="bindCountryChange" value="{{'countryIndex'}}" range="{{countries}}" range-key="{{'Zonename'}}" name="zone">
                         <view class="weui-select weui-select_in-select-after">{{countries[countryIndex].Zonename}}</view>
                     </picker>
                 </view>

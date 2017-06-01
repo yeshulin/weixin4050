@@ -35,6 +35,7 @@ Page({
           name: 'file',
           success: function (res) {
             var data = res.data
+            console.log(data);
             //do something
           }
         })
@@ -53,6 +54,17 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    //设置当前年份
+    var myDate = new Date();
+    var currMonth = myDate.getMonth();
+    var currQuarter = Math.floor((currMonth % 3 == 0 ? (currMonth / 3) : (currMonth / 3 + 1)));
+    console.log(currQuarter);
+    that.setData({
+      years: myDate.getFullYear(),
+      userid: wx.getStorageSync("userid"),
+      months: currQuarter
+    })
+    //设置当前定位
     wx.getLocation({
         type: 'wgs84',
         success: function(res) {
@@ -75,6 +87,7 @@ Page({
   },
   formSubmit: function (e) {
     var showTopTips = true;
+    var that = this;
      console.log(e.detail.value);
      if (e.detail.value.photos==""){
        this.setData({
@@ -92,7 +105,7 @@ Page({
          url: 'http://localhost:8080/api/signs', //仅为示例，并非真实的接口地址
          data: e.detail.value,
          header: {
-           'content-type': 'multipart/form-data'
+           'content-type': 'application/x-www-form-urlencoded'
          },
          method: 'post',
          success: function (res) {
@@ -102,6 +115,12 @@ Page({
               wx.redirectTo({
                 url: '/pages/signs/msg_success',
               })
+           }else{
+             that.setData({
+               showTopTips: true,
+               errMessage: res.data.message
+             });
+             showTopTips = false;
            }
          }
 

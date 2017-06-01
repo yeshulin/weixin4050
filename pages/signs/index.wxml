@@ -8,7 +8,10 @@
                     <view class="weui-label">签到季度</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" name="months"/>
+                    第{{months}}季度
+                    <input class="weui-input" name="years" value="{{years}}" style="display:none"/>
+                    <input class="weui-input" name="userid" value="{{userid}}" style="display:none"/>
+                    <input class="weui-input" name="months" value="{{months}}" style="display:none"/>
                 </view>
             </view>
             <view class="weui-cell weui-cell_input">

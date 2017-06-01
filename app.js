@@ -24,6 +24,8 @@ App({
               },
               success:function(data){
                  console.log(data)
+                 wx.setStorageSync('openid',data.data.data.openid);
+                 wx.setStorageSync("userid", data.data.data.id);
               }
             })
           }else {

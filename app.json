@@ -5,8 +5,8 @@
     "pages/apply/index",
     "pages/signs/index",
     "pages/signs/msg_success",
-    "pages/applyinfo/index",
-    "pages/signsinfo/index"
+    "pages/signsinfo/index",
+    "pages/applyinfo/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

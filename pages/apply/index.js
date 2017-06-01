@@ -1,3 +1,4 @@
+var app = getApp()
 Page({
   data: {
     showTopTips: false,
@@ -73,6 +74,22 @@ Page({
   }, 
   onLoad: function () {
     var that = this;
+    //设置当前年份
+    var myDate = new Date();
+    that.setData({
+      years: myDate.getFullYear(),
+      userid:wx.getStorageSync("userid")
+    })
+    //获取用户头像
+    //调用应用实例的方法获取全局数据
+    app.getUserInfo(function (userInfo) {
+      //更新数据
+      console.log(userInfo)
+      that.setData({
+        userInfo: userInfo
+      })
+    })  
+    //设置区域
     wx.request({
       url: 'http://localhost:8080/api/zones',
       data: {},
@@ -88,6 +105,7 @@ Page({
     })
   },
   formSubmit: function (e) {
+    var that = this;
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
     var showTopTips = true;
     if(e.detail.value.username==""){
@@ -153,16 +171,27 @@ Page({
         showTopTips: false
       });
       showTopTips = true;
-      console.log();
+      console.log(e.detail.value);
       wx.request({
         url: 'http://localhost:8080/user/apply', //仅为示例，并非真实的接口地址
         data: e.detail.value,
         header: {
-          'content-type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded'
         },
         method:'post',
         success: function (res) {
-          console.log(res.data)
+          if (res.data.code == 1) {
+            wx.redirectTo({
+              url: '/pages/apply/msg_success',
+            })
+          }else{
+            that.setData({
+              showTopTips: true,
+              errMessage: res.data.message
+            });
+            showTopTips = false;
+            return showTopTips;
+          }
         }
       })
     }

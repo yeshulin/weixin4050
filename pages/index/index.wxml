@@ -8,7 +8,7 @@
   <view class="page__bd page__bd_spacing">
         <view class="weui-flex">
             <view class="weui-flex__item"><view class="placeholder" bindtap="applyTap">资料审核</view></view>
-             <view class="weui-flex__item"><view class="placeholder" bindtap="signsTap">签到认证</view></view>
+             <view class="weui-flex__item"><view wx:if="{{isapply >0}}" class="placeholder" bindtap="signsTap">签到认证</view><view wx:else class="placeholder1" >签到认证</view></view>
         </view>
         <view class="weui-flex">
             <view class="weui-flex__item"><view class="placeholder"  bindtap="applyInfoTap">审核信息</view></view>

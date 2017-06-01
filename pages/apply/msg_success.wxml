@@ -5,7 +5,7 @@
         </view>
         <view class="weui-msg__text-area">
             <view class="weui-msg__title">操作成功</view>
-            <view class="weui-msg__desc">签到成功，请每季度按时签到！</view>
+            <view class="weui-msg__desc">资料提交成功，请等待管理员审核！</view>
         </view>
         <view class="weui-msg__opr-area">
             <view class="weui-btn-area">

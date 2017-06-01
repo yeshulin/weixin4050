@@ -1,74 +1,56 @@
-<view class="page">
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
     <view class="page__bd">
-        <view class="weui-panel weui-panel_access">
-            <view class="weui-panel__hd">第二季度</view>
-            <view class="weui-panel__bd">
-                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                        <view class="weui-media-box__title">签到定位</view>
-                    </view>
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="{{icon60}}" />
-                    </view>
-                </navigator>
-                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                  <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                        <view class="weui-media-box__title">即时照片</view>
-                        <view class="weui-media-box__desc"></view>
-                    </view>
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="{{icon60}}" />
-                    </view>
-                    
-                </navigator>
+      <form>
+      <view class="weui-cell weui-cell_select">
+            <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">选择年度</view>
+            </view>
+            <view class="weui-cell__bd">
+                <picker bindchange="bindYearsChange"  value="{{index}}" range="{{years}}" name="years">
+                    <view class="weui-select weui-select_in-select-after">{{years[index]}}</view>
+                </picker>
             </view>
         </view>
-        <view class="weui-panel weui-panel_access">
-            <view class="weui-panel__hd">第三季度</view>
+        <view class="weui-panel weui-panel_access" wx:for="{{signslist}}" wx:key="unique">
+            <view class="weui-panel__hd">第{{item.Months}}季度</view>
             <view class="weui-panel__bd">
-                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                        <view class="weui-media-box__title">签到定位</view>
+                  <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">定位定位</view>
                     </view>
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="{{icon60}}" />
+                    <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;">
+                        <map id="map" longitude="20" latitude="10" scale="14"  bindcontroltap="controltap" bindmarkertap="markertap"  bindregionchange="regionchange" show-location style="width: 100%; height: 200px;"></map>
                     </view>
-                </navigator>
-                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                  <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                        <view class="weui-media-box__title">即时照片</view>
-                        <view class="weui-media-box__desc"></view>
+                  </view>
+              </view>
+              <view class="weui-panel__bd">
+                  <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">即时拍照</view>
                     </view>
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="{{icon60}}" />
+                    <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;">
+                         <block wx:for="{{item.Photos}}" wx:key="*this"  wx:for-item="item1">
+                                <view class="weui-uploader__file" bindtap="previewImage" id="{{item1}}">
+                                    <image class="weui-uploader__img" src="{{item1}}" mode="aspectFill" />
+                                </view>
+                         </block>
                     </view>
-                    
-                </navigator>
-            </view>
-        </view>
-        <view class="weui-panel weui-panel_access">
-            <view class="weui-panel__hd">第四季度</view>
-            <view class="weui-panel__bd">
-                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                     <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                        <view class="weui-media-box__title">签到定位</view>
+                  </view>
+              </view>
+              <view class="weui-panel__bd">
+                  <view class="weui-cell weui-cell_input">
+                    <view class="weui-cell__hd">
+                        <view class="weui-label">是否审核</view>
                     </view>
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="{{icon60}}" />
-                    </view>
-                </navigator>
-                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                  <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                        <view class="weui-media-box__title">即时照片</view>
-                        <view class="weui-media-box__desc"></view>
-                    </view>
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="{{icon60}}" />
-                    </view>
-                    
-                </navigator>
-            </view>
-        </view>
+                    <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;" wx:if="{{item.Isverify ==1 }}">是</view>
+                    <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;" wx:if="{{item.Isverify ==-1 }}">驳回,原因：{{item.Remark}}</view>
+                    <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;" wx:if="{{item.Isverify ==0 }}">等待审核</view>
+                  </view>
+              </view>
+              
+          </view>
 
+          <view class="weui-panel weui-panel_access" wx:if="{{signslist == '' }}" style="text-align:center; padding-top:20px;">当前年度无签到信息！</view>
+        </form>
     </view>
 </view>
