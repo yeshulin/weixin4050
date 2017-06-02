@@ -1,4 +1,5 @@
 // pages/applyinfo/index.js
+var util = require('../../utils/util.js');
 Page({
 
   /**
@@ -8,59 +9,32 @@ Page({
   
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  onLoad: function () {
+    var that = this;
+    var userid = wx.getStorageSync("userid");
+    wx.request({
+      url: 'http://localhost:8080/api/applys/list',
+      data: {
+        userid: userid
+      },
+      success: function (res) {
+        //console.log(res.data.data)
+        if (res.data.data) {
+          var array = new Array();
+          res.data.data.forEach(function (val, index, arr) {
+            val.Addtime = util.formatTime(new Date(parseInt(val.Addtime) * 1000))
+            array.push(val)
+          })
+          console.log(array)
+          that.setData({
+            applyslist: array
+          })
+        } else {
+          that.setData({
+            applyslist: ""
+          })
+        }
+      }
+    })
   }
 })
