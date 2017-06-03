@@ -1,6 +1,8 @@
-var app = getApp()
+var app = getApp();
+var appUrl = getApp().globalData.appUrl;
 Page({
   data: {
+    appUrl: appUrl,
     showTopTips: false,
 
     radioItems: [
@@ -91,7 +93,7 @@ Page({
     })  
     //设置区域
     wx.request({
-      url: 'http://localhost:8080/api/zones',
+      url: appUrl +'/api/zones',
       data: {},
       header: {
         'content-type': 'application/json'
@@ -173,7 +175,7 @@ Page({
       showTopTips = true;
       console.log(e.detail.value);
       wx.request({
-        url: 'http://localhost:8080/user/apply', //仅为示例，并非真实的接口地址
+        url: appUrl +'/user/apply', //仅为示例，并非真实的接口地址
         data: e.detail.value,
         header: {
           'content-type': 'application/x-www-form-urlencoded'

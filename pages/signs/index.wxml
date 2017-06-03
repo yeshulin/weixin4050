@@ -41,7 +41,7 @@
                                     <view class="weui-uploader__input" bindtap="chooseImage"></view>
                                 </view>
                             </view>
-                            <input type="hidden" value="{{files}}" name="photos"/>
+                            <input type="hidden" value="{{photos}}" name="photos"/>
                         </view>
                     </view>
             </view>

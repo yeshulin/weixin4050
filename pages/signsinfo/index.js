@@ -1,5 +1,7 @@
+var appUrl=getApp().globalData.appUrl;
 Page({
   data: {
+    appUrl: appUrl,
     years: [2017, 2018, 2019, 2020, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2029],
     index:0,
     markers: [{
@@ -22,7 +24,7 @@ Page({
     var year = years[e.detail.value];
     var userid = wx.getStorageSync("userid");
     wx.request({
-      url: 'http://localhost:8080/api/signs/list',
+      url: appUrl+'/api/signs/list',
       data: {
         userid: userid,
         years: year
@@ -67,7 +69,7 @@ Page({
     var years = myDate.getFullYear();
     var userid = wx.getStorageSync("userid");
     wx.request({
-      url: 'http://localhost:8080/api/signs/list',
+      url: appUrl +'/api/signs/list',
       data:{
         userid:userid,
         years:years

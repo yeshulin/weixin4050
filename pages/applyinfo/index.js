@@ -1,4 +1,5 @@
 // pages/applyinfo/index.js
+var appUrl = getApp().globalData.appUrl;
 var util = require('../../utils/util.js');
 Page({
 
@@ -6,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    appUrl: appUrl
   
   },
 
@@ -13,7 +15,7 @@ Page({
     var that = this;
     var userid = wx.getStorageSync("userid");
     wx.request({
-      url: 'http://localhost:8080/api/applys/list',
+      url: appUrl +'/api/applys/list',
       data: {
         userid: userid
       },

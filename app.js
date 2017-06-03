@@ -16,7 +16,7 @@ App({
         success: function (result) {
           if(result.code){
             wx.request({
-              url: 'http://localhost:8080/user/regweixin',
+              url: getApp().globalData.appUrl+'/user/regweixin',
               method:'post',
               data: {code: result.code},
               header: {
@@ -43,6 +43,7 @@ App({
     }
   },
   globalData:{
-    userInfo:null
+    userInfo:null,
+    appUrl:"http://localhost:8080"
   }
 })

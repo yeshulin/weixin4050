@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 var app = getApp()
+var appUrl = getApp().globalData.appUrl;
 Page({
   data: {
     motto: 'Hello World',
@@ -38,7 +39,7 @@ Page({
     var userid=wx.getStorageSync("userid");
     var that = this;
     wx.request({
-      url: 'http://localhost:8080/user/getapply',
+      url: appUrl +'/user/getapply',
       data: {
         years:years,
         userid:userid

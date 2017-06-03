@@ -1,11 +1,14 @@
 // pages/signs/index.js
+var appUrl = getApp().globalData.appUrl;
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    appUrl: appUrl,
     showTopTips: false,
     files: [],
+    photos:[],
     markers: [{
       iconPath: "/resources/others.png",
       id: 0,
@@ -30,15 +33,19 @@ Page({
         });
         var tempFilePaths = res.tempFilePaths
         wx.uploadFile({
-          url: 'http://localhost:8080/file/upload', //仅为示例，非真实的接口地址
+          url: appUrl +'/file/upload', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
           name: 'file',
           success: function (res) {
-            var data = res.data
-            console.log(data);
+            var data = JSON.parse(res.data);
+            console.log(data.data);
+            that.setData({
+              photos: that.data.photos.concat(data.data)
+            }
+            )
             //do something
           }
-        })
+        },"json")
       }
     })
   },
@@ -102,7 +109,7 @@ Page({
          showTopTips: false
        });
        wx.request({
-         url: 'http://localhost:8080/api/signs', //仅为示例，并非真实的接口地址
+         url: appUrl +'/api/signs', //仅为示例，并非真实的接口地址
          data: e.detail.value,
          header: {
            'content-type': 'application/x-www-form-urlencoded'
