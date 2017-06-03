@@ -34,34 +34,38 @@ Page({
     })
   },
   onLoad: function () {
-    var myDate = new Date();
-    var years=myDate.getFullYear();
-    var userid=wx.getStorageSync("userid");
     var that = this;
-    wx.request({
-      url: appUrl +'/user/getapply',
-      data: {
-        years:years,
-        userid:userid
-      },
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res.data)
-        console.log(res.data.code)
-        that.setData({
-          isapply:res.data.code
-        })
-      }
-    })
-
     //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
+    app.getUserInfo(function (userInfo) {
+      console.log(userInfo)
       //更新数据
+      var myDate = new Date();
+      var years = myDate.getFullYear();
+      var userid = wx.getStorageSync("userid");
+      
+      wx.request({
+        url: appUrl + '/user/getapply',
+        data: {
+          years: years,
+          userid: userid
+        },
+        header: {
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          console.log(res.data)
+          console.log(res.data.code)
+          that.setData({
+            isapply: res.data.code
+          })
+        }
+      })
       that.setData({
-        userInfo:userInfo
+        userInfo: userInfo
       })
     })
+    
+
+   
   }
 })

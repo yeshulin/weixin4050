@@ -1,1 +1,4 @@
 /* pages/apply/index.wxss */
+.appsline{
+  height: 2.58823529em;line-height: 2.58823529em;
+}

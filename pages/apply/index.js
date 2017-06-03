@@ -104,6 +104,22 @@ Page({
           countries:res.data.data
         })
       }
+    });
+    wx.request({
+      url: appUrl + '/api/users', //仅为示例，并非真实的接口地址
+      data: { userid: wx.getStorageSync("userid") },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'get',
+      success: function (res) {
+        console.log(res.data.data);
+        if(res.data.data.Id>1){
+          that.setData({
+            users:res.data.data
+          })
+        }
+      }
     })
   },
   formSubmit: function (e) {
@@ -182,6 +198,7 @@ Page({
         },
         method:'post',
         success: function (res) {
+          console.log(res.data)
           if (res.data.code == 1) {
             wx.redirectTo({
               url: '/pages/apply/msg_success',
@@ -194,6 +211,17 @@ Page({
             showTopTips = false;
             return showTopTips;
           }
+        }
+      });
+      wx.request({
+        url: appUrl + '/api/users', //仅为示例，并非真实的接口地址
+        data: { userid: wx.getStorageSync("userid") },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded'
+        },
+        method: 'get',
+        success: function (res) {
+          console.log(res)
         }
       })
     }

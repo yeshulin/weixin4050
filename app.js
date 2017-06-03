@@ -44,6 +44,7 @@ App({
   },
   globalData:{
     userInfo:null,
-    appUrl:"https://scps.19apps.com"
+    appUrl: "http://localhost:8080"
+    //appUrl:"https://scps.19apps.com"
   }
 })
