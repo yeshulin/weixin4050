@@ -17,7 +17,7 @@
                     <view class="weui-form-preview__value">{{item.Workaddress}}</view>
                 </view>
                 <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">是否审核</view>
+                    <view class="weui-form-preview__label">审核状态</view>
                     <view class="weui-form-preview__value" wx:if="{{item.Isverify ==1 }}">通过</view>
                     <view class="weui-form-preview__value" wx:if="{{item.Isverify ==-1 }}">驳回,原因：{{item.Remark}}</view>
                     <view class="weui-form-preview__value" wx:if="{{item.Isverify ==0 }}">等待审核</view>

@@ -12,7 +12,7 @@
             </view>
         </view>
         <view class="weui-panel weui-panel_access" wx:for="{{signslist}}" wx:key="unique">
-            <view class="weui-panel__hd">第{{item.Months}}季度</view>
+            <view class="weui-panel__hd">Q{{item.Quarter}}季度{{item.Months}}月份</view>
             <view class="weui-panel__bd">
                   <view class="weui-cell weui-cell_input">
                     <view class="weui-cell__hd">
@@ -40,9 +40,9 @@
               <view class="weui-panel__bd">
                   <view class="weui-cell weui-cell_input">
                     <view class="weui-cell__hd">
-                        <view class="weui-label">是否审核</view>
+                        <view class="weui-label">审核状态</view>
                     </view>
-                    <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;" wx:if="{{item.Isverify ==1 }}">是</view>
+                    <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;" wx:if="{{item.Isverify ==1 }}">通过</view>
                     <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;" wx:if="{{item.Isverify ==-1 }}">驳回,原因：{{item.Remark}}</view>
                     <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;" wx:if="{{item.Isverify ==0 }}">等待审核</view>
                   </view>

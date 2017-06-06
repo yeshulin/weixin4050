@@ -56,13 +56,14 @@ Page({
     var that = this;
     //设置当前年份
     var myDate = new Date();
-    var currMonth = myDate.getMonth();
+    var currMonth = myDate.getMonth()+1;
     var currQuarter = Math.floor((currMonth % 3 == 0 ? (currMonth / 3) : (currMonth / 3 + 1)));
     console.log(currQuarter);
     that.setData({
       years: myDate.getFullYear(),
       userid: wx.getStorageSync("userid"),
-      months: currQuarter
+      quarter: currQuarter,
+      months: currMonth
     })
     //设置当前定位
     wx.getLocation({
@@ -95,6 +96,14 @@ Page({
     var showTopTips = true;
     var that = this;
      console.log(e.detail.value);
+     if (e.detail.value.months < 4) {
+       this.setData({
+         showTopTips: true,
+         errMessage: "签到必须从4月份开始！"
+       });
+       showTopTips = false;
+       return showTopTips;
+     }
      if (e.detail.value.photos==""){
        this.setData({
          showTopTips: true,

@@ -12,9 +12,11 @@ Page({
     }]
   },
   previewImage: function (e) {
+    console.log(e.currentTarget.id);
+    console.log(appUrl + '/' + e.currentTarget.id);
     wx.previewImage({
       current: e.currentTarget.id, // 当前显示图片的http链接
-      urls: this.data.files // 需要预览的图片http链接列表
+      urls: [appUrl +e.currentTarget.id] // 需要预览的图片http链接列表
     })
   },
   bindYearsChange: function (e) {

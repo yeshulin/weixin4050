@@ -5,18 +5,19 @@
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
-                    <view class="weui-label">签到季度</view>
+                    <view class="weui-label">签到月度</view>
                 </view>
                 <view class="weui-cell__bd">
-                    第{{months}}季度
+                    Q{{quarter}}季度{{months}}月份
                     <input class="weui-input" name="years" value="{{years}}" style="display:none"/>
                     <input class="weui-input" name="userid" value="{{userid}}" style="display:none"/>
                     <input class="weui-input" name="months" value="{{months}}" style="display:none"/>
+                    <input class="weui-input" name="quarter" value="{{quarter}}" style="display:none"/>
                 </view>
             </view>
             <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
-                    <view class="weui-label">定位定位</view>
+                    <view class="weui-label">签到定位</view>
                 </view>
                 <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;">
                     <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" markers="{{markers}}"  bindcontroltap="controltap" bindmarkertap="markertap"  bindregionchange="regionchange" show-location style="width: 100%; height: 200px;"></map>
