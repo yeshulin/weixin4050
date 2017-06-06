@@ -5,13 +5,17 @@ Page({
     years: [2017, 2018, 2019, 2020, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2029],
     index:0,
     markers: [{
-      iconPath: "/resources/others.png",
+      iconPath: "/resource/other.png",
       id: 0,
-      latitude: 23.099994,
-      longitude: 113.324520,
-      width: 50,
-      height: 50
+      latitude: 104.05985,
+      longitude: 30.54305
     }]
+  },
+  previewImage: function (e) {
+    wx.previewImage({
+      current: e.currentTarget.id, // 当前显示图片的http链接
+      urls: this.data.files // 需要预览的图片http链接列表
+    })
   },
   bindYearsChange: function (e) {
     console.log('picker years 发生选择改变，携带值为', e.detail.value);

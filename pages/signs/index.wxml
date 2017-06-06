@@ -19,7 +19,7 @@
                     <view class="weui-label">定位定位</view>
                 </view>
                 <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;">
-                    <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14"  bindcontroltap="controltap" bindmarkertap="markertap"  bindregionchange="regionchange" show-location style="width: 100%; height: 200px;"></map>
+                    <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" markers="{{markers}}"  bindcontroltap="controltap" bindmarkertap="markertap"  bindregionchange="regionchange" show-location style="width: 100%; height: 200px;"></map>
                     <input value="{{longitude}}" name="longitude" style="display:none"/>
                     <input value="{{latitude}}" name="latitude" style="display:none"/>
                 </view>

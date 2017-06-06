@@ -19,7 +19,7 @@
                         <view class="weui-label">定位定位</view>
                     </view>
                     <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;">
-                        <map id="map" longitude="{{item.Postion[0]}}" latitude="{{item.Postion[1]}}" scale="14"  bindcontroltap="controltap" bindmarkertap="markertap"  bindregionchange="regionchange" show-location style="width: 100%; height: 200px;"></map>
+                        <map id="map" longitude="{{item.Postion[0]}}" latitude="{{item.Postion[1]}}" scale="14"  markers="[{iconPath: '/resource/other.png', id: 0,latitude: {{item.Postion[1]}},longitude: {{item.Postion[0]}}}]"  bindcontroltap="controltap" bindmarkertap="markertap"  bindregionchange="regionchange" show-location  style="width: 100%; height: 200px;"></map>
                     </view>
                   </view>
               </view>
@@ -42,7 +42,7 @@
                     <view class="weui-cell__hd">
                         <view class="weui-label">是否审核</view>
                     </view>
-                    <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;" wx:if="{{item.Isverify ==1 }}">通过</view>
+                    <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;" wx:if="{{item.Isverify ==1 }}">是</view>
                     <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;" wx:if="{{item.Isverify ==-1 }}">驳回,原因：{{item.Remark}}</view>
                     <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;" wx:if="{{item.Isverify ==0 }}">等待审核</view>
                   </view>

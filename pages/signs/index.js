@@ -8,15 +8,8 @@ Page({
     appUrl: appUrl,
     showTopTips: false,
     files: [],
-    photos:[],
-    markers: [{
-      iconPath: "/resources/others.png",
-      id: 0,
-      latitude: 23.099994,
-      longitude: 113.324520,
-      width: 50,
-      height: 50
-    }]
+    photos:[]
+    
     
     
   },
@@ -77,7 +70,13 @@ Page({
         success: function(res) {
           that.setData({
             longitude:res.longitude,
-            latitude: res.latitude
+            latitude: res.latitude,
+            markers: [{
+              iconPath: "/resource/other.png",
+              id: 0,
+              latitude: res.latitude,
+              longitude: res.longitude
+            }]
           })
         },
     })
