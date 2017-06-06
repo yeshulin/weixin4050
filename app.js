@@ -26,6 +26,20 @@ App({
                  console.log(data)
                  wx.setStorageSync('openid',data.data.data.openid);
                  wx.setStorageSync("userid", data.data.data.id);
+                 if (data.data.data.id==0){
+                   wx.showModal({
+                     content: '你还未填写资料，请填写资料进行资格申请！',
+                     showCancel: false,
+                     success: function (res) {
+                       if (res.confirm) {
+                         console.log(res.confirm)
+                         wx.navigateTo({
+                           url: '../apply/index',
+                         })
+                       }
+                     }
+                   });
+                 }
               }
             })
           }else {
@@ -44,7 +58,7 @@ App({
   },
   globalData:{
     userInfo:null,
-    //appUrl: "http://localhost:8080"
-    appUrl:"https://scps.19apps.com"
+    appUrl: "http://localhost:8080"
+    //appUrl:"https://scps.19apps.com"
   }
 })

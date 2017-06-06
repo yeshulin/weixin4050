@@ -11,6 +11,7 @@
                 <view class="weui-cell__bd">
                     <input class="weui-input"  name="years" value="{{years}}" style="display:none"/>{{years}}
                     <input class="weui-input" name="id" value="{{userid}}" style="display:none"/>
+                    <input class="weui-input" name="openid" value="{{openid}}" style="display:none"/>
                     <input class="weui-input" name="avatarurl" value="{{userInfo.avatarUrl}}" style="display:none"/>
                 </view>
             </view>
@@ -18,7 +19,8 @@
                 <view class="weui-cell__hd">
                     <view class="weui-label">身份证号</view>
                 </view>
-                <view class="weui-cell__bd appsline" wx:if="{{users.Username !=''}}" >
+                <view class="weui-cell__bd appsline" wx:if="{{users.Username}}" >
+                {{users.Username}}
                     <input class="weui-input" type="idcard" placeholder="请输入身份证号" name="username" value="{{users.Username}}" style="display:none"/>{{users.Username}}
                 </view>
                 <view class="weui-cell__bd" wx:else>
@@ -30,7 +32,7 @@
                 <view class="weui-cell__hd">
                     <view class="weui-label">姓名</view>
                 </view>
-                <view class="weui-cell__bd appsline" wx:if="{{users.Realname !=''}}">
+                <view class="weui-cell__bd appsline" wx:if="{{users.Realname}}">
                     <input class="weui-input" placeholder="请输入姓名" name="realname" value="{{users.Realname}}" style="display:none"/>{{users.Realname}}
                 </view>
                 <view class="weui-cell__bd" wx:else>
@@ -41,7 +43,7 @@
                 <view class="weui-cell__hd">
                     <view class="weui-label">性别</view>
                 </view>
-               <view class="weui-cell__bd appsline" wx:if="{{users.Sex !=''}}">
+               <view class="weui-cell__bd appsline" wx:if="{{users.Sex}}">
                     <input class="weui-input" placeholder="请输入性别" name="sex" value="{{users.Sex}}" style="display:none"/>{{users.Sex}}
                 </view>
                <radio-group bindchange="radioChange"  name="sex" wx:else >
@@ -58,7 +60,7 @@
                 <view class="weui-cell__hd">
                     <view class="weui-label">出生年月</view>
                 </view>
-                 <view class="weui-cell__bd appsline" wx:if="{{users.Bothtime !=''}}">
+                 <view class="weui-cell__bd appsline" wx:if="{{users.Bothtime}}">
                     <input class="weui-input" placeholder="请输入出生年月" name="bothtime" value="{{users.Bothtime}}" style="display:none"/>{{users.Bothtime}}
                 </view>
                 <view class="weui-cell__bd" wx:else>
@@ -69,10 +71,10 @@
             </view>
             <view class="weui-cell weui-cell_select">
                 <view class="weui-cell__hd weui-cell__hd_in-select-after">
-                    <view class="weui-label">所属区域</view>
+                    <view class="weui-label">所属乡镇</view>
                 </view>
-                 <view class="weui-cell__bd appsline" wx:if="{{users.Zone !=''}}">
-                    <input class="weui-input" placeholder="请输入年属区域" name="zone" value="{{users.Zone-1}}" style="display:none"/>{{countries[users.Zone-1].Zonename}}
+                 <view class="weui-cell__bd appsline" wx:if="{{users.Zone}}">
+                    <input class="weui-input" placeholder="请输入所属乡镇" name="zone" value="{{users.Zone-1}}" style="display:none"/>{{countries[users.Zone-1].Zonename}}
                 </view>
                 <view class="weui-cell__bd" wx:else>
                     <picker bindchange="bindCountryChange" value="{{'countryIndex'}}" range="{{countries}}" range-key="{{'Zonename'}}" name="zone">
@@ -84,7 +86,7 @@
                 <view class="weui-cell__hd">
                     <view class="weui-label">家庭住址</view>
                 </view>
-                 <view class="weui-cell__bd appsline" wx:if="{{users.Address !=''}}">
+                 <view class="weui-cell__bd appsline" wx:if="{{users.Address}}">
                     <input class="weui-input" placeholder="请输入家庭住址" name="address" value="{{users.Address}}" style="display:none"/>{{users.Address}}
                 </view>
                 <view class="weui-cell__bd" wx:else>
@@ -100,23 +102,23 @@
                 </view>
               
             </view>
-       
         <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
                     <view class="weui-label">灵活就业地址</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入灵活就业地址" name="worktype" value="{{users.Worktype}}"/>
+                    <input class="weui-input" placeholder="请输入灵活就业地址" name="workaddress" value="{{users.Workaddress}}"/>
                 </view>
             </view>
-            <view class="weui-cell weui-cell_input">
+        <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
                     <view class="weui-label">灵活就业形式</view>
                 </view>
                 <view class="weui-cell__bd">
-                    <input class="weui-input" placeholder="请输入灵活就业形式" name="workaddress" value="{{users.Workaddress}}"/>
+                    <input class="weui-input" placeholder="请输入灵活就业形式" name="worktype" value="{{users.Worktype}}"/>
                 </view>
             </view>
+           
        
           <view class="weui-btn-area">
               <button class="weui-btn" type="primary"  formType="submit">提交</button>

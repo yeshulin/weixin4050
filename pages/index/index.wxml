@@ -7,12 +7,12 @@
   <view class="page">
   <view class="page__bd page__bd_spacing">
         <view class="weui-flex">
-            <view class="weui-flex__item"><view class="placeholder" bindtap="applyTap">资料审核</view></view>
-             <view class="weui-flex__item"><view wx:if="{{isapply >0}}" class="placeholder" bindtap="signsTap">签到认证</view><view wx:else class="placeholder1" >签到认证</view></view>
+            <view class="weui-flex__item"><view class="placeholder" bindtap="applyTap">资格申请</view></view>
+             <view class="weui-flex__item"><view wx:if="{{isapply >0}}" class="placeholder" bindtap="signsTap">月度签到</view><view wx:else class="placeholder1" >月度签到</view></view>
         </view>
         <view class="weui-flex">
-            <view class="weui-flex__item"><view class="placeholder"  bindtap="applyInfoTap">审核信息</view></view>
-            <view class="weui-flex__item"><view class="placeholder" bindtap="signsInfoTap">签到信息</view></view>
+            <view class="weui-flex__item"><view class="placeholder"  bindtap="applyInfoTap">审核状态</view></view>
+            <view class="weui-flex__item"><view class="placeholder" bindtap="signsInfoTap">签到管理</view></view>
         </view>
     </view>
     </view>

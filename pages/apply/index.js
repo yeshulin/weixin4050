@@ -80,7 +80,8 @@ Page({
     var myDate = new Date();
     that.setData({
       years: myDate.getFullYear(),
-      userid:wx.getStorageSync("userid")
+      userid:wx.getStorageSync("userid"),
+      openid:wx.getStorageSync("openid")
     })
     //获取用户头像
     //调用应用实例的方法获取全局数据

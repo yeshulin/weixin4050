@@ -5,6 +5,7 @@
     "pages/apply/index",
     "pages/signs/index",
     "pages/signs/msg_success",
+    "pages/apply/msg_success",
     "pages/signsinfo/index",
     "pages/applyinfo/index"
   ],

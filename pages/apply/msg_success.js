@@ -1,6 +1,6 @@
 Page({
   data:{},
-  signsInfoTap: function () {
+  applysInfoTap: function () {
     wx.navigateTo({
       url: '/pages/applyinfo/index',
     })
