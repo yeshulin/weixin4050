@@ -20,7 +20,6 @@
                     <view class="weui-label">身份证号</view>
                 </view>
                 <view class="weui-cell__bd appsline" wx:if="{{users.Username}}" >
-                {{users.Username}}
                     <input class="weui-input" type="idcard" placeholder="请输入身份证号" name="username" value="{{users.Username}}" style="display:none"/>{{users.Username}}
                 </view>
                 <view class="weui-cell__bd" wx:else>
