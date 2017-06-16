@@ -1,6 +1,8 @@
 <!--index.wxml-->
+<view class="manager" bindtap="managerTap">核查员登录</view>
 <view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
+
+  <view   class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
@@ -13,6 +15,9 @@
         <view class="weui-flex">
             <view class="weui-flex__item"><view class="placeholder"  bindtap="applyInfoTap">审核状态</view></view>
             <view class="weui-flex__item"><view class="placeholder" bindtap="signsInfoTap">签到管理</view></view>
+        </view>
+         <view class="weui-flex" wx:if="{{userrole > 0}}">
+            <view class="weui-flex__item"><view class="placeholder"  bindtap="checkTap">资料核查</view></view>
         </view>
     </view>
     </view>

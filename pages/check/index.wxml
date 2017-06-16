@@ -1,0 +1,64 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <view class="page__bd">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+        <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示:{{errMessage}}</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">核查季度</view>
+                </view>
+                <view class="weui-cell__bd">
+                    Q{{quarter}}季度
+                    <input class="weui-input" name="years" value="{{years}}" style="display:none"/>
+                    <input class="weui-input" name="months" value="{{months}}" style="display:none"/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">选择用户</view>
+                </view>
+                <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;">
+                    <input class="weui-input" name="realname" value="{{realname}}" placeholder="请选择" bindtap="searchTap"/>
+                    <input class="weui-input" name="userid" value="{{userid}}" style="display:none"/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">核查定位</view>
+                </view>
+                <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;">
+                    <map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="14" markers="{{markers}}"  bindcontroltap="controltap" bindmarkertap="markertap"  bindregionchange="regionchange" show-location style="width: 100%; height: 200px;"></map>
+                    <input value="{{longitude}}" name="longitude" style="display:none"/>
+                    <input value="{{latitude}}" name="latitude" style="display:none"/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input" style="padding-top:10px;padding-bottom:10px;">
+                 <view class="weui-uploader">
+                        <view class="weui-uploader__hd">
+                            <view class="weui-uploader__title">核查拍照</view>
+                            <view class="weui-uploader__info">{{files.length}}/5</view>
+                        </view>
+                        <view class="weui-uploader__bd">
+                            <view class="weui-uploader__files" id="uploaderFiles">
+                                <block wx:for="{{files}}" wx:key="*this">
+                                    <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                                        <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                                    </view>
+                                </block>
+                                <view class="weui-uploader__input-box">
+                                    <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                                </view>
+                            </view>
+                            <input type="hidden" value="{{photos}}" name="photos"/>
+                        </view>
+                    </view>
+            </view>
+
+          <view class="weui-btn-area">
+              <button class="weui-btn" type="primary"  formType="submit">提交</button>
+          </view>
+
+        </view> 
+        </form>
+    </view>
+</view>

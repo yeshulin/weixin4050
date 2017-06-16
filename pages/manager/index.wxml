@@ -1,0 +1,31 @@
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+
+    <view class="page__bd">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+        <view class="manager-page">核查员登录</view>
+        <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示:{{errMessage}}</view>
+        <view class="weui-cells weui-cells_after-title">
+            <input class="weui-input" name="id" value="{{userid}}" style="display:none"/>
+            <input class="weui-input" name="openid" value="{{openid}}" style="display:none"/>
+            <input class="weui-input" name="avatarurl" value="{{userInfo.avatarUrl}}" style="display:none"/>
+            <view class="weui-cell weui-cell_input">
+                
+                <view class="weui-cell__bd appsline">
+                    <input class="weui-input manager-input" placeholder="请输入用户名" name="username"/>
+                </view>
+            </view>
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd appsline">
+                    <input class="weui-input manager-input" type="password" placeholder="请输入密码" name="password" />
+                </view>
+               
+            </view>
+
+          <view class="weui-btn-area" style="margin-top:20px;">
+              <button class="weui-btn" type="primary"  formType="submit">提交</button>
+          </view>
+
+        </view> 
+        </form>
+    </view>
+</view>

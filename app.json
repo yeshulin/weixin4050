@@ -7,7 +7,11 @@
     "pages/signs/msg_success",
     "pages/apply/msg_success",
     "pages/signsinfo/index",
-    "pages/applyinfo/index"
+    "pages/applyinfo/index",
+    "pages/manager/index",
+    "pages/manager/msg_success",
+    "pages/check/index",
+    "pages/check/searchbar"
   ],
   "window":{
     "backgroundTextStyle":"light",

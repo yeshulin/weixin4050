@@ -5,12 +5,18 @@ var appUrl = getApp().globalData.appUrl;
 Page({
   data: {
     motto: 'Hello World',
-    userInfo: {}
+    userInfo: {},
+    userrole: wx.getStorageSync("userrole")
   },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({
       url: '../logs/logs'
+    })
+  },
+  managerTap:function(){
+    wx.navigateTo({
+      url: '../manager/index',
     })
   },
   applyTap:function(){
@@ -31,6 +37,11 @@ Page({
   signsInfoTap:function(){
     wx.navigateTo({
       url: '../signsinfo/index',
+    })
+  },
+  checkTap: function () {
+    wx.navigateTo({
+      url: '../check/index',
     })
   },
   onLoad: function () {
