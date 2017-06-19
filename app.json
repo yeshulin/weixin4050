@@ -11,7 +11,8 @@
     "pages/manager/index",
     "pages/manager/msg_success",
     "pages/check/index",
-    "pages/check/searchbar"
+    "pages/check/searchbar",
+    "pages/check/msg_success"
   ],
   "window":{
     "backgroundTextStyle":"light",

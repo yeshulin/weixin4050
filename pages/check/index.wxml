@@ -10,7 +10,11 @@
                 <view class="weui-cell__bd">
                     Q{{quarter}}季度
                     <input class="weui-input" name="years" value="{{years}}" style="display:none"/>
-                    <input class="weui-input" name="months" value="{{months}}" style="display:none"/>
+                    <input class="weui-input" name="adminid" value="{{adminid}}" style="display:none"/> 
+                    <input class="weui-input" wx:if="{{quarter == 2}}" name="quarter2" value="{{quarter}}" style="display:none"/>
+                    <input class="weui-input" wx:elif="{{quarter == 3}}" name="quarter3" value="{{quarter}}" style="display:none"/>
+                    <input class="weui-input" wx:elif="{{quarter == 4}}" name="quarter4" value="{{quarter}}" style="display:none"/>
+                    <input class="weui-input" wx:else name="quarter1" value="{{quarter}}" style="display:none"/>
                 </view>
             </view>
             <view class="weui-cell weui-cell_input">
@@ -22,6 +26,13 @@
                     <input class="weui-input" name="userid" value="{{userid}}" style="display:none"/>
                 </view>
             </view>
+            <view class="weui-cell weui-cell_input"  wx:if="{{userid}}">
+             <view class="weui-cell__bd" style="padding-top:10px;padding-bottom:10px;" >
+                    <view>身份证号：{{username}}</view>
+                    <view>电话：{{phone}}</view>
+                    <view>地址：{{address}}</view>
+               </view>     
+            </view>        
             <view class="weui-cell weui-cell_input">
                 <view class="weui-cell__hd">
                     <view class="weui-label">核查定位</view>

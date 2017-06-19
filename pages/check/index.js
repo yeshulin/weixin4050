@@ -70,7 +70,8 @@ Page({
     that.setData({
       years: myDate.getFullYear(),
       quarter: currQuarter,
-      months: currMonth
+      months: currMonth,
+      adminid: wx.getStorageSync("userid")
     })
     //设置当前定位
     wx.getLocation({
@@ -93,7 +94,10 @@ Page({
     if(userid>0){
       that.setData({
         userid:userid,
-        realname:realname
+        realname:realname,
+        username:options.username,
+        phone:options.phone,
+        address:options.address
       })
     }
 
@@ -112,10 +116,10 @@ Page({
     var showTopTips = true;
     var that = this;
      console.log(e.detail.value);
-     if (e.detail.value.months < 4) {
+     if (e.detail.value.userid == "") {
        this.setData({
          showTopTips: true,
-         errMessage: "签到必须从4月份开始！"
+         errMessage: "请选择用户！"
        });
        showTopTips = false;
        return showTopTips;
@@ -133,7 +137,7 @@ Page({
          showTopTips: false
        });
        wx.request({
-         url: appUrl +'/api/signs', //仅为示例，并非真实的接口地址
+         url: appUrl +'/api/applys', //仅为示例，并非真实的接口地址
          data: e.detail.value,
          header: {
            'content-type': 'application/x-www-form-urlencoded'
@@ -144,7 +148,7 @@ Page({
            console.log(res.data.data)
            if(res.data.code==1){
               wx.redirectTo({
-                url: '/pages/signs/msg_success',
+                url: '/pages/check/msg_success',
               })
            }else{
              that.setData({

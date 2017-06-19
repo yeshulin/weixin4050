@@ -1,8 +1,8 @@
 Page({
   data:{},
-  signsInfoTap: function () {
+  checkInfoTap: function () {
     wx.navigateTo({
-      url: '/pages/signsinfo/index',
+      url: '/pages/check/index',
     })
   }
 });

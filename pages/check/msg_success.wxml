@@ -5,11 +5,11 @@
         </view>
         <view class="weui-msg__text-area">
             <view class="weui-msg__title">操作成功</view>
-            <view class="weui-msg__desc">签到成功，请每季度按时签到！</view>
+            <view class="weui-msg__desc">核查成功，请你前往下一地点进行核查！！</view>
         </view>
         <view class="weui-msg__opr-area">
             <view class="weui-btn-area">
-                <button class="weui-btn" type="primary" bindtap="signsInfoTap">查看记录</button>
+                <button class="weui-btn" type="primary" bindtap="checkInfoTap">继续核查</button>
             </view>
         </view>
         <view class="weui-msg__extra-area">
