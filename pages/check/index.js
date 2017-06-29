@@ -8,7 +8,11 @@ Page({
     appUrl: appUrl,
     showTopTips: false,
     files: [],
-    photos:[]
+    photos:[],
+    radioItems: [
+      { name: '通过', value: '1', checked: true },
+      { name: '不通过', value: '-1' }
+    ],
     
     
     
@@ -128,6 +132,14 @@ Page({
        this.setData({
          showTopTips: true,
          errMessage: "即时拍照图不能为空！"
+       });
+       showTopTips = false;
+       return showTopTips;
+     }
+     if (e.detail.value.remark == "") {
+       this.setData({
+         showTopTips: true,
+         errMessage: "备注不能为空!"
        });
        showTopTips = false;
        return showTopTips;
