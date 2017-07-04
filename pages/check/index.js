@@ -22,6 +22,18 @@ Page({
       url: '/pages/check/searchbar',
     })
   },
+  radioChange: function (e) {
+    console.log('radio发生change事件，携带value值为：', e.detail.value);
+
+    var radioItems = this.data.radioItems;
+    for (var i = 0, len = radioItems.length; i < len; ++i) {
+      radioItems[i].checked = radioItems[i].value == e.detail.value;
+    }
+
+    this.setData({
+      radioItems: radioItems
+    });
+  },
   chooseImage: function (e) {
     var that = this;
     wx.chooseImage({
@@ -128,14 +140,14 @@ Page({
        showTopTips = false;
        return showTopTips;
      }
-     if (e.detail.value.photos==""){
+     /*if (e.detail.value.photos==""){
        this.setData({
          showTopTips: true,
          errMessage: "即时拍照图不能为空！"
        });
        showTopTips = false;
        return showTopTips;
-     }
+     }*/
      if (e.detail.value.remark == "") {
        this.setData({
          showTopTips: true,
